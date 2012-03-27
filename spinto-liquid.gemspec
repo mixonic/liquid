@@ -1,8 +1,8 @@
 # encoding: utf-8
 
 Gem::Specification.new do |s|
-  s.name        = "liquid"
-  s.version     = "2.3.0"
+  s.name        = "spinto-liquid"
+  s.version     = "2.3.0.1"
   s.platform    = Gem::Platform::RUBY
   s.summary     = "A secure, non-evaling end user template engine with aesthetic markup."
   s.authors     = ["Tobias Luetke"]
