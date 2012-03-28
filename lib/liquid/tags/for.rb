@@ -100,6 +100,8 @@ module Liquid
           collection.sort {|a,b| a[sort_property] <=> b[sort_property] }
         elsif collection.first.respond_to?(sort_property)
           collection.sort {|a,b| a.send(sort_property) <=> b.send(sort_property) }
+        elsif collection.first.respond_to?(:to_liquid) and collection.first.to_liquid.respond_to?('[]') and !collection.first.to_liquid[sort_property].nil?
+          collection.sort {|a,b| "#{a.to_liquid[sort_property]}" <=> "#{b.to_liquid[sort_property]}" };
         else
           collection
         end
