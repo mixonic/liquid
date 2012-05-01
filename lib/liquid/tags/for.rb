@@ -85,9 +85,10 @@ module Liquid
     def render(context)        
       context.registers[:for] ||= Hash.new(0)
     
-      collection = context[@collection_name]
+      # Dup so reverse! doesn't hit the real object
+      collection = context[@collection_name].dup
       collection = collection.to_a if collection.is_a?(Range)
-    
+
       # Maintains Ruby 1.8.7 String#each behaviour on 1.9
       return render_else(context) unless iterable?(collection)
                                                  
